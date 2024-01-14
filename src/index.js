@@ -38,27 +38,29 @@ app.get('/state', (req, res) => {
 
 async function getState() {
   try {
-  fetch(
-    'http://localhost:8123/api/states/button.gledopto_gl_mc_001p_identify',
-    {
-      method: 'GET',
-      headers: {
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1NjkxMjU3NDIzMDg0YWEyODliZDk1NzlkODZlYTBmMCIsImlhdCI6MTcwNTE0NDU5NiwiZXhwIjoyMDIwNTA0NTk2fQ.VaVUPHWmKdx3-byNxfBuNbtzd8IIQ8SwcI57JaP4Ex4',
-        'content-type': 'application/json'
+    const response = await fetch(
+      'http://localhost:8123/api/states/button.gledopto_gl_mc_001p_identify',
+      {
+        method: 'GET',
+        headers: {
+          Authorization:
+            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI1NjkxMjU3NDIzMDg0YWEyODliZDk1NzlkODZlYTBmMCIsImlhdCI6MTcwNTE0NDU5NiwiZXhwIjoyMDIwNTA0NTk2fQ.VaVUPHWmKdx3-byNxfBuNbtzd8IIQ8SwcI57JaP4Ex4',
+          'content-type': 'application/json'
+        }
       }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-  )
-    .then((response) => response.json())
-    .then((data) => {
-      // handle the response data here
-      console.log(data);
-      return data;
-    })
-    .catch((error) => {
-      // handle any errors here
-      console.error(error);
-    });
+
+    const data = await response.json();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 }
 
 /* app.post('/command', (req, res) => {
