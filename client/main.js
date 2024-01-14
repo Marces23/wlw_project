@@ -12,11 +12,6 @@ document.onload = async () => {
 
 document.getElementById('getWeatherBtn').addEventListener('click', getWeather);
 
-function getWeather() {
-    // Add code here to get weather data
-}
-
-
 async function getWeather() {
     
 

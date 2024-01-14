@@ -1,4 +1,4 @@
-import express from 'express';
+/* import express from 'express';
 
 const app = express();
 const port = 3000;
@@ -12,9 +12,7 @@ headers = {
 }
 
 response = get(url, headers=headers)
-print(response.text)
-
-
+print(response.text) */
 
 /* // In your main.js file or a similar script
 async function getHomeAssistantData() {

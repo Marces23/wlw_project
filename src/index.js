@@ -26,19 +26,20 @@ app.get('/echo', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Linux Commands available on ${port}`);
+  console.log(`States available on ${port}`);
 });
 
 app.get('/state', (req, res) => {
-  state = getState();
-  res.send({
-    state: response.text
-  });
+  response = getState();
+  console.log(response);
+
+  res.send({});
 });
 
 async function getState() {
+  try {
   fetch(
-    'http://192.168.0.27:8123/api/states/button.gledopto_gl_mc_001p_identify',
+    'http://localhost:8123/api/states/button.gledopto_gl_mc_001p_identify',
     {
       method: 'GET',
       headers: {
