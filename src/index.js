@@ -29,11 +29,20 @@ app.listen(port, () => {
   console.log(`States available on ${port}`);
 });
 
-app.get('/state', (req, res) => {
-  response = getState();
-  console.log(response);
+app.get('/state', async (req, res) => {
+  try {
+    const stateData = await getState();
+    console.log(stateData);
 
-  res.send({});
+    res.send({
+      state: stateData
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send({
+      error: 'An Error occurred while fetchin the state'
+    });
+  }
 });
 
 async function getState() {

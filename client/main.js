@@ -49,6 +49,22 @@ const myAnimation = element.animate(keyframes, animation);
 myAnimation.play();
 
 
+document.getElementById('getStateBtn').addEventListener('click', getState);
+
+async function getState(){
+  try {
+
+    const response = await fetch('localhost:3000/state');
+    const stateData = await response.json();
+    console.log("erhaltene StateData: "+stateData)
+    document.getElementById('show-state').innerHTML = stateData;
+} catch (error) {
+    console.error('Error fetching state data:', error);
+}
+}
+
+
+
 // Funktion zum Herstellen einer Verbindung zum WebSocket-Server
 function connectToServer(url) {
     const socket = new WebSocket(url);
