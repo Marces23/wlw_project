@@ -10,7 +10,12 @@ document.onload = async () => {
     }
 }
 
+
 document.getElementById('getWeatherBtn').addEventListener('click', getWeather);
+
+
+
+
 
 async function getWeather() {
     
@@ -23,6 +28,24 @@ async function getWeather() {
         console.error('Error fetching weather data:', error);
     }
 }
+
+
+
+fetch('http://localhost:3000/state', {
+  method: 'GET', // or 'POST' if you want to send data to the server
+  headers: {
+    'Content-Type': 'application/json',
+  },
+})
+.then(response => response.json())
+.then(data => {
+  // handle the response data here
+  console.log(data);
+})
+.catch(error => {
+  // handle any errors here
+  console.error(error);
+});
 
 // Select the element you want to add animation to
 const element = document.getElementById("temperatureChart");
