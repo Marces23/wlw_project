@@ -13,6 +13,15 @@ let headers = {
 
 app.use(express.json());
 
+app.use((_, res, next) => {
+  res.setHeader('access-control-allow-origin', '*');
+  res.setHeader(
+    'access-control-allow-headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  return next();
+});
+
 app.get('/', (req, res) => {
   res.send('hello');
 });
