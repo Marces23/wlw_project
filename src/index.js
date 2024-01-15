@@ -1,4 +1,9 @@
 import express from 'express';
+import fetch from 'node-fetch';
+import {
+  getTemperatureData,
+  runTemperatureInterval
+} from './temperatureSensor.js';
 
 const app = express();
 const port = 3000;
@@ -32,10 +37,6 @@ app.get('/echo', (req, res) => {
   res.send({
     command: cmd
   });
-});
-
-app.listen(port, () => {
-  console.log(`States available on ${port}`);
 });
 
 app.get('/state', async (req, res) => {
@@ -80,6 +81,17 @@ async function getState() {
     throw error;
   }
 }
+
+// Run the interval with a 5-second duration for temperature readings
+runTemperatureInterval(5000, (temperatureData) => {
+  console.log(
+    `Current Temperature: ${temperatureData.temperature} °C at: ${temperatureData.timestamp}`
+  );
+});
+
+app.listen(port, () => {
+  console.log(`States available on ${port}`);
+});
 
 /* app.post('/command', (req, res) => {
   const { body } = req;
