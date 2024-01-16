@@ -1,4 +1,5 @@
 # wlw_project: Home Wetterstation mit Homeassistent + ZigBee
+Webserver zur Einbindung von ZigBee Elementen an homeassistant und Wetterdarstellung über lokal am Raspi gemessene Temperatur mit Einbindung Wetter API.
 
 ![Übersicht_wlwProjekt-wlw_Idee drawio](https://github.com/Marces23/wlw_project/assets/79634707/537c463d-673d-44d0-b8ab-724d7ab02dc8)
 
