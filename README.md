@@ -14,6 +14,7 @@ Zweitens wurde die Anbindung an den lokalen homeassistant Server durchgeführt. 
 
 Die Applikation ist noch nicht abgeschlossen. Das Vue-Framework wurde (noch) nicht verwendet. Das Projekt muss noch weitergeführt werden.
 Die wichtigsten Funktionen konnten prinzipiell erarbeitet werden. Die Darstellung über den Client kann noch deutlich verbessert werden.
+
 ![Übersicht_wlwProjekt-wlw_result drawio](https://github.com/Marces23/wlw_project/assets/79634707/de0038e5-0217-451c-ae40-259762be56ca)
 
 
