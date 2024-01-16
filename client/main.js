@@ -10,14 +10,7 @@
     }
 } */
 
-
-document.getElementById('getWeatherBtn').addEventListener('click', getWeather);
-
-
-
-
-
-async function getWeather() {
+/* async function getWeather() {
   try {
     const response = await fetch(apiUrl);
     const data = await response.json();
@@ -25,35 +18,16 @@ async function getWeather() {
   } catch (error) {
     console.error('Error fetching weather data:', error);
   }
-}
+} */
 
-
-
-fetch('http://localhost:3000/state', {
-  method: 'GET', // or 'POST' if you want to send data to the server
-  headers: {
-    'Content-Type': 'application/json',
-  },
-})
-.then(response => response.json())
-.then(data => {
-  // handle the response data here
-  console.log(data);
-})
-.catch(error => {
-  // handle any errors here
-  console.error(error);
-});
-
-// Select the element you want to add animation to
 const element = document.getElementById('temperatureChart');
 
-// Define the animation properties
+// Properties
 const animation = {
-  duration: 2000, // Duration of the animation in milliseconds
-  timingFunction: 'ease-in-out', // Timing function of the animation
-  iterations: 1, // Number of times the animation should repeat
-  delay: 0 // Delay before the animation starts
+  duration: 2000, //milisec
+  timingFunction: 'ease-in-out',
+  iterations: 1,
+  delay: 0
 };
 
 // Define the keyframes for the animation
@@ -63,7 +37,6 @@ const keyframes = [
   { transform: 'translateX(0)' }
 ];
 
-// Create the animation object
 const myAnimation = element.animate(keyframes, animation);
 
 // Start the animation
@@ -109,12 +82,7 @@ function connectToServer(url) {
   return socket;
 }
 
-// Stellen Sie eine Verbindung zum WebSocket-Server her
-const socket = connectToServer('ws://your-websocket-server-url');
-
-showToast('This is a toast message!');
-
-function updateBackgroundColor(temperature) {
+/* function updateBackgroundColor(temperature) {
   if (temperature < 0) {
     document.body.style.backgroundColor = '#003399'; // Light blue
   } else if (temperature <= 10) {
@@ -124,4 +92,4 @@ function updateBackgroundColor(temperature) {
   } else {
     document.body.style.backgroundColor = '#ffffff'; // White
   }
-}
+} */

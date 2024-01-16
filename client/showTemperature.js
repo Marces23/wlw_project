@@ -37,21 +37,22 @@ document.addEventListener('DOMContentLoaded', function () {
   // Establish WebSocket connection
   const socket = new WebSocket('ws://localhost:3000');
 
-  // Connection opened
   socket.addEventListener('open', function (event) {
     console.log('WebSocket connection opened');
   });
 
-  // Listen for messages from the server
   socket.addEventListener('message', (event) => {
     const temperatureData = JSON.parse(event.data);
     console.log('Received temperature data:', temperatureData);
 
-    // Update chart data
-    chart.data.labels.push(temperatureData.timestamp);
+    // Update
+    let timestampShort = temperatureData.timestamp;
+    timestampShort =
+      timestampShort.slice(0, 10) + ' ' + timestampShort.slice(11, 19);
+    chart.data.labels.push(timestampShort);
     chart.data.datasets[0].data.push(temperatureData.temperature);
 
-    // Limit the number of data points displayed
+    // Limit datapoints
     const maxDataPoints = 100;
     if (chart.data.labels.length > maxDataPoints) {
       chart.data.labels.shift();
@@ -61,10 +62,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Update the chart
     chart.update();
 
-    // Display a toast message
+    /*     // Display a toast message
     showToast(
       `New Temperature Data: ${temperatureData.temperature} °C at ${temperatureData.timestamp}`
-    );
+    ); */
   });
 
   // Handle WebSocket errors
@@ -77,8 +78,3 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('WebSocket connection closed');
   });
 });
-
-function showToast(message) {
-  // Implement your showToast function here
-  console.log(message);
-}
