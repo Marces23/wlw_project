@@ -1,21 +1,23 @@
 body {
-  background-color: #003399; /* Light blue */
-  margin: 0; /* Remove default margin */
+  background-color: #7ea0e4;
+  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 #weather-content {
   display: block;
+  justify-content: center;
 }
 
 .chart-container {
-  width: 600px;
-  height: 400px;
+  width: 800px;
+  height: 600px;
 }
 
-#toast-container {
+/* #toast-container {
   position: fixed;
   bottom: 16px;
   right: 16px;
@@ -40,18 +42,78 @@ body {
   color: white;
   max-width: 80%;
   box-sizing: border-box;
-}
+} */
 
-#led-container,
-#pir-container,
-#button-container {
+#buttonPanel {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 20px;
   margin-top: 20px;
 }
 
+#getStateBtn,
+#led-switch {
+  justify-content: center;
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  appearance: none;
+  background-color: #2ea44f;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.1) 0 1px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: -apple-system, system-ui, 'Segoe UI', Helvetica, Arial,
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+#getStateBtn :focus:not(:focus-visible):not(.focus-visible) {
+  box-shadow: none;
+  outline: none;
+}
+
+#getStateBtn :hover {
+  background-color: #2c974b;
+}
+
+#getStateBtn :focus {
+  box-shadow: rgba(46, 164, 79, 0.4) 0 0 0 3px;
+  outline: none;
+}
+
+#getStateBtn :active {
+  background-color: #298e46;
+  box-shadow: rgba(20, 70, 32, 0.2) 0 1px 0 inset;
+}
+
+#show-state {
+  min-height: 100px;
+  min-width: 300px;
+  max-width: 400px;
+  padding: 1rem;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
 img {
   width: 100%; /* Make the image fill its container */
-  max-width: 600px; /* Set a maximum width for the image */
+  max-width: 400px; /* Set a maximum width for the image */
   height: auto; /* Maintain the image aspect ratio */
 }

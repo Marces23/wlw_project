@@ -6,12 +6,9 @@
     <title>Weather Sensor</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <style>
-        .chart-container {
-            width: 600px;
-            height: 400px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
+
+
 </head>
 <body>
     <h1>Weather Sensor</h1>
@@ -20,13 +17,8 @@
         <canvas id="temperatureChart"></canvas>
     </div>
 
-    
-
-    <h2>API Weather</h2>
-    
-    <button id="getWeatherBtn">Get Weather</button>
-    <div id="weatherInfo"></div>
-
+    <h2>API Weather</h2>    
+    <!-- <button id="getWeatherBtn">Get Weather</button> -->
     <div id="weatherInfo">
 
 		<div style="width:100%;height:100%;max-width:1020px;max-height:700px">
@@ -36,10 +28,14 @@
 		</div>
 
         
+    <div class="buttonPanel">
+        <div id="led-container">Status LED</div>
+        <div id="button-container">
+            <button id="led-switch">LED Switch</button>
+        </div>
 
-    <div id="led-container"></div>
-    <div id="pir-container"></div>
-    <div id="button-container"></div>
+    </div>
+
 
     <button id="getStateBtn">Get States</button>
     <div id="show-state"></div>

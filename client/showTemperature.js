@@ -17,8 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           label: 'Temperature',
           data: [],
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)'
+          borderColor: 'white',
+          borderWidth: 1,
+          backgroundColor: 'white'
         }
       ]
     },
